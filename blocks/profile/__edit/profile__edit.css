@@ -1,4 +1,4 @@
-/* .profile__edit {
+.profile__edit {
   width: 24px;
   height: 24px;
   border: 1px solid #fff;
@@ -19,27 +19,5 @@
     background-size: 7.5px 7.5px;
     top: 8px;
     right: 19px;
-  }  
-} */
-
-.profile__edit {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #fff;
-  background-image: url(../../../images/profile-edit.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  align-self: end;
-}
-
-@media screen and (max-width: 691px) {
-  .profile__edit {
-    width: 18px;
-    height: 18px;
-    background-size: 7.5px 7.5px;
-    position: absolute;
-    top: 8px;
-    right: -28px;
   }  
 }

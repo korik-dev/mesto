@@ -6,10 +6,9 @@
   color: #545454 ;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 320px) {
   .footer__caption {
     font-size: 14px;
-    line-height: 16.94px;
-    margin-left: 19px;
+    line-height: 16.94px ;
   }  
 }
