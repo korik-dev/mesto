@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000;
-  align-self: end;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 691px) {
@@ -16,6 +16,12 @@
     background-size: 7.5px 7.5px;
     position: absolute;
     top: 8px;
-    right: -28px;
-  }  
+    right: 19px;
+    margin: 0;
+  }
+}
+
+.profile__edit:hover {
+  opacity: .6;
+  cursor: pointer;
 }

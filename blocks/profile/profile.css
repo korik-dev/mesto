@@ -5,19 +5,17 @@
   align-items: center;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 880px) {
   .profile {
-    max-width: calc(100% - 2*19px);
-
+    max-width: calc(100% - 2 * 19px);
   }
 }
 
 @media screen and (max-width: 691px) {
   .profile {
     margin: 42px auto 36px;
-    max-height: 286px;
-    max-width: calc(100% - 2*19px);
     flex-direction: column;
     align-content: center;
+    max-height: 286px;
   }  
 }
