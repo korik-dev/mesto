@@ -4,12 +4,13 @@
   font-size: 18px;
   line-height: 21.78px;
   color: #545454;
+  margin: 0;
 }
 
 @media screen and (max-width: 879px) {
   .footer__caption {
     font-size: 14px;
     line-height: 16.94px;
-    margin-left: 19px;
+    margin: 0 0 0 19px;
   }
 }

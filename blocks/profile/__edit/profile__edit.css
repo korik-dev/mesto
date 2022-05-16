@@ -2,7 +2,7 @@
   width: 24px;
   height: 24px;
   border: 1px solid #fff;
-  background-image: url(../../../images/profile-edit.png);
+  background-image: url(../../../images/profile-edit.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000;
@@ -14,10 +14,7 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px 7.5px;
-    position: absolute;
-    top: 8px;
-    right: 19px;
-    margin: 0;
+    margin: 8px 19px 14px 10px;
   }
 }
 
