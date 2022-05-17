@@ -11,9 +11,13 @@ let formDescription = document.querySelector('.popup__input_type_description')
 
 let form = document.querySelector('.popup__edit')
 
-function popupToggle() {
-  popup.classList.toggle('popup_opened')
+function openPopup() {
+  popup.classList.add('popup_opened')
   fillInput()
+}
+
+function closePopup() {
+  popup.classList.remove('popup_opened')
 }
 
 function fillInput () {
@@ -27,11 +31,11 @@ function formSave(event) {
   profileName.textContent = formName.value
   profileDescription.textContent = formDescription.value
 
-  popupToggle()
+  closePopup()
 }
 
-editButton.addEventListener('click', popupToggle)
+editButton.addEventListener('click', openPopup)
 
-closeButton.addEventListener('click', popupToggle)
+closeButton.addEventListener('click', closePopup)
 
 form.addEventListener('submit', formSave)
