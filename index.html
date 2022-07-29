@@ -22,67 +22,57 @@
       <button class="profile__add" type="button"></button>
     </section>
 
-    <div class="popup">
+    <div class="popup" id="edit-profile">
       <div class="popup__container">
-        <button class="popup__close" type="button"></button>
-        <form class="popup__edit" name="edit-form">
+        <button class="popup__close" id="edit-profile-close" type="button"></button>
+        <form class="popup__form" name="edit-form">
           <h2 class="popup__heading">Редактировать профиль</h2>
-          <input class="popup__input popup__input_type_name" placeholder="" type="text" name="name">
-          <input class="popup__input popup__input_type_description" placeholder="" type="text" name="description">
-          <button class="popup__save" type="submit">Сохранить</button>
+          <input class="popup__input" id="profile-name" placeholder="" type="text" name="name">
+          <input class="popup__input" id="profile-description" placeholder="" type="text" name="description">
+          <button class="popup__save" id="edit-profie-save" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
+
+    <div class="popup" id="open-card">
+      <div class="open-card">
+        <button class="popup__close" id="open-card-close" type="button"></button>
+        <img class="open-card__image" src="" alt="">
+        <h2 class="open-card__caption"></h2>
+      </div>
+    </div>
     
+    <div class="popup" id="add-card">
+      <div class="popup__container">
+        <button class="popup__close" id="add-card-close" type="button"></button>
+        <form class="popup__form" id="add-form" name="add-new-card">
+          <h2 class="popup__heading">Новое место</h2>
+          <input class="popup__input" id="addName" placeholder="Название" type="text" name="card-name">
+          <input class="popup__input" id="addLink" placeholder="Ссылка на картинку" type="url" name="card-url">
+          <button class="popup__save" id="add-card-save" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+
     <section class="elements">
-      <article class="card">
-        <img class="card__image" src="./images/elbrus.jpg" alt="эльбрус">
-        <div class="card__footer">        
-          <h2 class="card__caption">Гора Эльбрус</h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/dombay.jpg" alt="домбай">
-        <div class="card__footer">
-          <h2 class="card__caption">Домбай</h2>
-          <button class="card__like" type="button"></button>
-        </div>        
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/karachaevsk.jpg" alt="карачаевск">
-        <div class="card__footer">
-          <h2 class="card__caption">Карачаевск</h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/karachaevsk.jpg" alt="карачаевск">
-        <div class="card__footer">
-          <h2 class="card__caption">Карачаево-Черкессия</h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/elbrus.jpg" alt="эльбрус">
-        <div class="card__footer">
-          <h2 class="card__caption">Гора Эльбрус</h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/dombay.jpg" alt="домбай">
-        <div class="card__footer">
-          <h2 class="card__caption">Домбай</h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </article>
     </section>
   </main>
   
   <footer class="footer">
     <p class="footer__caption">© 2022 Mesto Russia</p>
   </footer>
+
+  <template id="card-template">
+    <article class="card">
+      <img class="card__image">
+      <button class="card__remove" type="button"></button>
+      <div class="card__footer">
+        <h2 class="card__caption"></h2>
+        <button class="card__like" type="button"></button>
+      </div>
+    </article>
+  </template>
+
   <script src="./scripts/index.js"></script>
 </body>
 </html>

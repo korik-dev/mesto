@@ -1,4 +1,4 @@
-.popup__close {
+.open-card__close {
   background-image: url(../../../images/close.svg);
   background-position: center;
   background-color: transparent;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .popup__close {
+  .open-card__close {
     width: 20px;
     height: 20px;
     top: -36px;
@@ -20,7 +20,7 @@
   }
 }
 
-.popup__close:hover {
+.open-card__close:hover {
   opacity: .6;
   cursor: pointer;
 }

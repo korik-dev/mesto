@@ -1,0 +1,18 @@
+.open-card__caption {
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14.52px;
+  margin: 10px 0 0 0 ;
+  max-width: 291px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 580px) {
+  .open-card__caption {
+    max-width: 240px;
+  }
+}
