@@ -104,6 +104,12 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened')
+  
+  popup.querySelectorAll('.popup__input_type_error')
+    .forEach(el => el.classList.remove('popup__input_type_error'))
+  
+  popup.querySelectorAll('.popup__error_visible')
+    .forEach(el => el.textContent = '')
 }
 
 // ИНИЦИАЛИЗАЦИЯ
@@ -121,9 +127,30 @@ editProfileBtn.addEventListener('click', () => {
 
 editProfileForm.addEventListener('submit', (event) => {
   event.preventDefault()
-  saveEditForm()
-  closePopup(editProfilePopup)
+
+  if(!event.target.disabled){
+    saveEditForm()
+    closePopup(editProfilePopup)
+  }
 })
 
 addCardBtn.addEventListener('click', () => openPopup(addCardPopup))
-addForm.addEventListener('submit', addCard)
+addForm.addEventListener('submit', (event) => {
+  if(!event.target.disabled){
+    const btn = event.target.querySelector('.popup__save')
+    
+    addCard(event)
+    
+    btn.setAttribute('disabled', '')
+    btn.classList.add('popup__save_disabled')
+  }
+})
+
+document.addEventListener('keydown', ({ key }) => key === 'Escape' && closePopup(document.querySelector('.popup_opened')))
+document.addEventListener('click', (evt) => {
+  const currentlyOpenPopup = document.querySelector('.popup_opened')
+  
+  if(evt.target ===  currentlyOpenPopup) {
+    return closePopup(currentlyOpenPopup)
+  }
+})

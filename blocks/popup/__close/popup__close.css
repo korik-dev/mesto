@@ -9,6 +9,7 @@
   right: -40px;
   border: none;
   background-size: contain;
+  outline: none;
 }
 
 @media screen and (max-width: 580px) {

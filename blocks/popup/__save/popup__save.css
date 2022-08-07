@@ -11,6 +11,7 @@
   margin-top: 48px;
   border: none;
   padding: 0;
+  outline: none;
 }
 
 @media screen and (max-width: 580px) {
