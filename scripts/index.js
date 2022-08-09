@@ -116,6 +116,14 @@ function closePopup(popup) {
 
   popup.querySelectorAll('.popup__error_visible')
     .forEach(el => el.textContent = '')
+
+  popup.querySelector('.popup__close')
+    .removeEventListener('click', () => closePopup(popup))
+
+  popup.querySelector('.popup__overlay')
+    .removeEventListener('click', () => closePopup(popup))
+
+  document.removeEventListener('keydown', (evt) => handleKeydown(evt))
 }
 
 // ИНИЦИАЛИЗАЦИЯ
@@ -133,7 +141,13 @@ editProfileForm.addEventListener('submit', (event) => {
   closePopup(editProfilePopup)
 })
 
-addCardBtn.addEventListener('click', () => openPopup(addCardPopup))
+addCardBtn.addEventListener('click', () => {
+  openPopup(addCardPopup)
+  document.addEventListener('keydown', (evt) => {
+    handleKeydown(evt)
+  })  
+})
+
 addForm.addEventListener('submit', (event) => {
   const btn = event.target.querySelector('.popup__save')
 
@@ -149,7 +163,16 @@ function handleKeydown({ key }) {
   }
 }
 
-document.addEventListener('keydown', (evt) => {
-  handleKeydown(evt)
-  document.removeEventListener('keydown', (evt) => handleKeydown(evt))
-})
+const handlePopupClick = evt => {
+  if (
+      (evt.target.classList.contains('popup__overlay') || evt.target.classList.contains('popup__close'))
+      &&
+      (evt.target.querySelector('.popup__form').validity.valid)
+    ) {
+      closePopup(document.querySelector('.popup_opened'))
+    }
+}
+
+Array.from(document.querySelectorAll('.popup'))
+  .forEach(item => item.addEventListener('click', handlePopupClick))
+

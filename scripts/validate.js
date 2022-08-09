@@ -22,24 +22,29 @@ function enableValidation(options){
     }
 
     function checkInputValidity (input){
+        if(input.closest(options.formSelector).checkValidity() || input.validity.valid){
+            return true
+        }
+    }
+
+    function handleInput(input){
         const errorField = document.querySelector(`#${input.id}_error`)
         const saveBtn = input.closest(options.formSelector).querySelector(options.submitButtonSelector)
 
-        if(input.closest(options.formSelector).checkValidity()){
+        if(checkInputValidity(input)){
             enableButton(saveBtn)
+            hideErrorMessage(errorField, input)
+
+            return
         }
 
-        if(input.validity.valid){
-            return hideErrorMessage(errorField, input)
-        }
-        
         disableButton(saveBtn)
-        return showErrorMessage(errorField, input)
+        showErrorMessage(errorField, input)
     }
 
     function setEventListeners(form){
         Array.from(form.querySelectorAll(options.inputSelector))
-            .forEach((input) => input.addEventListener('input', () => checkInputValidity(input)))
+            .forEach((input) => input.addEventListener('input', () => handleInput(input)))
     }
 
     Array.from(document.querySelectorAll(options.formSelector))
