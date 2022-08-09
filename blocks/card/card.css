@@ -7,3 +7,7 @@
   flex-direction: column;
   position: relative;
 }
+
+.card:hover {
+  cursor: pointer;
+}

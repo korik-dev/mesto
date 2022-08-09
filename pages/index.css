@@ -38,9 +38,13 @@
 @import url(../blocks/popup/__input/_type/_error/popup__input_type_error.css);
 @import url(../blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-
+@import url(../blocks/popup/__overlay/popup__overlay.css);
+@import url(../blocks/popup/__overlay/_dark/popup__overlay_dark.css);
 
 @import url(../blocks/open-card/open-card.css);
 @import url(../blocks/open-card/__image/open-card__image.css);
 @import url(../blocks/open-card/__caption/open-card__caption.css);
 @import url(../blocks/open-card/__close/open-card__close.css);
+
+
+

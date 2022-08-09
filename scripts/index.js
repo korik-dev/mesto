@@ -78,7 +78,7 @@ function createCard(link, name) {
   return cardElement
 }
 
-function fillInput() {
+function prefillProfileFormInput() {
   profileNameForm.value = profileName.textContent
   profileDescriptionForm.value = profileDescription.textContent
 }
@@ -100,6 +100,12 @@ function addCard(event) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened')
+
+  popup.querySelector('.popup__close')
+    .addEventListener('click', () => closePopup(popup))
+
+  popup.querySelector('.popup__overlay')
+    .addEventListener('click', () => closePopup(popup))
 }
 
 function closePopup(popup) {
@@ -107,7 +113,7 @@ function closePopup(popup) {
   
   popup.querySelectorAll('.popup__input_type_error')
     .forEach(el => el.classList.remove('popup__input_type_error'))
-  
+
   popup.querySelectorAll('.popup__error_visible')
     .forEach(el => el.textContent = '')
 }
@@ -115,42 +121,35 @@ function closePopup(popup) {
 // ИНИЦИАЛИЗАЦИЯ
 initialCards.forEach(i => cardsContainer.append(createCard(i.link, i.name)))
 
-document.querySelectorAll('.popup__close')
-  .forEach(button =>
-    button.addEventListener('click', () => closePopup(button.closest('.popup')))
-  )
-
 editProfileBtn.addEventListener('click', () => {
-  fillInput()
+  prefillProfileFormInput()
   openPopup(editProfilePopup)
 })
 
 editProfileForm.addEventListener('submit', (event) => {
   event.preventDefault()
 
-  if(!event.target.disabled){
-    saveEditForm()
-    closePopup(editProfilePopup)
-  }
+  saveEditForm()
+  closePopup(editProfilePopup)
 })
 
 addCardBtn.addEventListener('click', () => openPopup(addCardPopup))
 addForm.addEventListener('submit', (event) => {
-  if(!event.target.disabled){
-    const btn = event.target.querySelector('.popup__save')
-    
-    addCard(event)
-    
-    btn.setAttribute('disabled', '')
-    btn.classList.add('popup__save_disabled')
-  }
+  const btn = event.target.querySelector('.popup__save')
+
+  addCard(event)
+
+  btn.setAttribute('disabled', '')
+  btn.classList.add('popup__save_disabled')
 })
 
-document.addEventListener('keydown', ({ key }) => key === 'Escape' && closePopup(document.querySelector('.popup_opened')))
-document.addEventListener('click', (evt) => {
-  const currentlyOpenPopup = document.querySelector('.popup_opened')
-  
-  if(evt.target ===  currentlyOpenPopup) {
-    return closePopup(currentlyOpenPopup)
+function handleKeydown({ key }) {
+  if (key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'))
   }
+}
+
+document.addEventListener('keydown', (evt) => {
+  handleKeydown(evt)
+  document.removeEventListener('keydown', (evt) => handleKeydown(evt))
 })

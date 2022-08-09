@@ -23,13 +23,14 @@
     </section>
 
     <div class="popup" id="edit-profile">
+      <div class="popup__overlay"></div>
       <div class="popup__container">
         <button class="popup__close" id="edit-profile-close" type="button"></button>
         <form class="popup__form" id="editProfileForm" name="edit-form" novalidate>
           <h2 class="popup__heading">Редактировать профиль</h2>
-          <input class="popup__input" id="profile-name" placeholder="" type="text" name="name" required minlength="2" maxlength="40">
+          <input class="popup__input" id="profile-name" placeholder="Жак-Ив Кусто" type="text" name="name" required minlength="2" maxlength="40">
           <span id="profile-name_error"></span>
-          <input class="popup__input" id="profile-description" placeholder="" type="text" name="description" required minlength="2" maxlength="200">
+          <input class="popup__input" id="profile-description" placeholder="Исследователь океана" type="text" name="description" required minlength="2" maxlength="200">
           <span id="profile-description_error"></span>
           <button class="popup__save" id="edit-profie-save" type="submit">Сохранить</button>
         </form>
@@ -37,6 +38,7 @@
     </div>
 
     <div class="popup" id="open-card">
+      <div class="popup__overlay popup__overlay_dark"></div>
       <div class="open-card">
         <button class="popup__close" id="open-card-close" type="button"></button>
         <img class="open-card__image" src="#href" alt="">
@@ -45,6 +47,7 @@
     </div>
     
     <div class="popup" id="add-card">
+      <div class="popup__overlay"></div>
       <div class="popup__container">
         <button class="popup__close" id="add-card-close" type="button"></button>
         <form class="popup__form" id="add-form" name="add-new-card" novalidate>
