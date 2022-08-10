@@ -151,7 +151,6 @@ function handleKeydown({ key }) {
 }
 
 const handlePopupClick = evt => {
-  console.log(evt.target)
   if (
       evt.target.classList.contains('popup__overlay') || evt.target.classList.contains('popup__close')
     ) {
