@@ -21,25 +21,32 @@ function enableValidation(options){
         btn.setAttribute('disabled', true)
     }
 
-    function checkInputValidity (input){
-        if(input.closest(options.formSelector).checkValidity() || input.validity.valid){
-            return true
+    function toggleSubmitButton(btn, input){
+        if(input.closest('.popup__form').checkValidity()){
+            enableButton(btn)
+
+            return
         }
+
+        disableButton(btn)
+    }
+
+    function toggleErrorMsg(errorField, input){
+        if(input.validity.valid){
+            hideErrorMessage(errorField, input)
+
+            return
+        }
+
+        showErrorMessage(errorField, input)
     }
 
     function handleInput(input){
         const errorField = document.querySelector(`#${input.id}_error`)
         const saveBtn = input.closest(options.formSelector).querySelector(options.submitButtonSelector)
 
-        if(checkInputValidity(input)){
-            enableButton(saveBtn)
-            hideErrorMessage(errorField, input)
-
-            return
-        }
-
-        disableButton(saveBtn)
-        showErrorMessage(errorField, input)
+        toggleSubmitButton(saveBtn, input)
+        toggleErrorMsg(errorField, input)
     }
 
     function setEventListeners(form){

@@ -101,11 +101,7 @@ function addCard(event) {
 function openPopup(popup) {
   popup.classList.add('popup_opened')
 
-  popup.querySelector('.popup__close')
-    .addEventListener('click', () => closePopup(popup))
-
-  popup.querySelector('.popup__overlay')
-    .addEventListener('click', () => closePopup(popup))
+  document.addEventListener('keydown', handleKeydown)
 }
 
 function closePopup(popup) {
@@ -117,13 +113,7 @@ function closePopup(popup) {
   popup.querySelectorAll('.popup__error_visible')
     .forEach(el => el.textContent = '')
 
-  popup.querySelector('.popup__close')
-    .removeEventListener('click', () => closePopup(popup))
-
-  popup.querySelector('.popup__overlay')
-    .removeEventListener('click', () => closePopup(popup))
-
-  document.removeEventListener('keydown', (evt) => handleKeydown(evt))
+  document.removeEventListener('keydown', handleKeydown)
 }
 
 // ИНИЦИАЛИЗАЦИЯ
@@ -143,9 +133,6 @@ editProfileForm.addEventListener('submit', (event) => {
 
 addCardBtn.addEventListener('click', () => {
   openPopup(addCardPopup)
-  document.addEventListener('keydown', (evt) => {
-    handleKeydown(evt)
-  })  
 })
 
 addForm.addEventListener('submit', (event) => {
@@ -164,10 +151,9 @@ function handleKeydown({ key }) {
 }
 
 const handlePopupClick = evt => {
+  console.log(evt.target)
   if (
-      (evt.target.classList.contains('popup__overlay') || evt.target.classList.contains('popup__close'))
-      &&
-      (evt.target.querySelector('.popup__form').validity.valid)
+      evt.target.classList.contains('popup__overlay') || evt.target.classList.contains('popup__close')
     ) {
       closePopup(document.querySelector('.popup_opened'))
     }
